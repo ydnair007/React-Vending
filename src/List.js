@@ -4,9 +4,8 @@ import { Button } from "reactstrap";
 
 const List = (props) => {
   //const list = props.list;
-  const [list, setList] = useState(props.lists);
-  useEffect(() => {}, [props.tPrice]);
-
+  const list = props.lists;
+  useEffect(() => {}, [props.lists]);
   return (
     <div>
       <h1>Our Products</h1>
@@ -26,9 +25,7 @@ const List = (props) => {
                   if (price <= props.cAmount) {
                     props.setCAmount(props.cAmount - price);
                     props.setTPrice(props.tPrice + price);
-                    let newList = item;
-                    newList.quantity = quantity + 1;
-                    //setList(newList);
+                    item.quantity = quantity + 1;
                     toast.dark("🧃 " + name + " added!");
                   } else {
                     toast.error("Not Enough Funds");
@@ -47,8 +44,7 @@ const List = (props) => {
                   } else if (quantity > 0) {
                     props.setCAmount(props.cAmount + price);
                     props.setTPrice(props.tPrice - price);
-                    let newList = item;
-                    newList.quantity = quantity - 1;
+                    item.quantity = quantity - 1;
                     toast.dark("🧃 " + name + " removed!");
                   } else {
                     toast.error("🧃 " + name + " not in cart!");

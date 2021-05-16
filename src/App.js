@@ -23,12 +23,16 @@ const App = () => {
   const [isEdit, setIsEdit] = useState(false);
   const [lists, setLists] = useState(data);
   const [tPrice, setTPrice] = useState(0);
+  const [repay, setRepay] = useState(0);
   useEffect(() => {
     toast.dark("🚀 App Loaded!");
     document.title = "Vending Machine!";
   }, []);
 
   const onSubmit = () => {
+    console.log(cAmount);
+    setRepay(cAmount);
+    console.log("repay " + repay);
     setIsEdit(!isEdit);
   };
   return (
@@ -88,7 +92,12 @@ const App = () => {
             setCAmount={setCAmount}
           ></List>
           <br />
-          <FooterAmount tPrice={tPrice}></FooterAmount>
+          <FooterAmount
+            setTPrice={setTPrice}
+            tPrice={tPrice}
+            repay={repay}
+            setLists={setLists}
+          ></FooterAmount>
         </>
       )}
     </div>
