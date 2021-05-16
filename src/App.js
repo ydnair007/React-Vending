@@ -21,7 +21,7 @@ import FooterAmount from "./FooterAmount";
 const App = () => {
   const [cAmount, setCAmount] = useState(0);
   const [isEdit, setIsEdit] = useState(false);
-  const [list, setList] = useState(data);
+  const [lists, setLists] = useState(data);
   const [tPrice, setTPrice] = useState(0);
   useEffect(() => {
     toast.dark("🚀 App Loaded!");
@@ -58,6 +58,7 @@ const App = () => {
                 type="number"
                 name="uAmount"
                 id="uAmount"
+                min="0"
                 disabled={isEdit}
                 placeholder="Amount"
                 onChange={(e) => setCAmount(e.target.value)}
@@ -76,7 +77,7 @@ const App = () => {
       ) : (
         <>
           <List
-            list={list}
+            lists={lists}
             tPrice={tPrice}
             setTPrice={setTPrice}
             tPrice={tPrice}

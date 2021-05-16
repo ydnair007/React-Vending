@@ -3,8 +3,8 @@ import { toast } from "react-toastify";
 import { Button } from "reactstrap";
 
 const List = (props) => {
-  const list = props.list;
-  //var quantity = 0;
+  //const list = props.list;
+  const [list, setList] = useState(props.lists);
   useEffect(() => {}, [props.tPrice]);
 
   return (
@@ -26,6 +26,9 @@ const List = (props) => {
                   if (price <= props.cAmount) {
                     props.setCAmount(props.cAmount - price);
                     props.setTPrice(props.tPrice + price);
+                    let newList = item;
+                    newList.quantity = quantity + 1;
+                    //setList(newList);
                     toast.dark("🧃 " + name + " added!");
                   } else {
                     toast.error("Not Enough Funds");
@@ -44,6 +47,8 @@ const List = (props) => {
                   } else {
                     props.setCAmount(props.cAmount + price);
                     props.setTPrice(props.tPrice - price);
+                    let newList = item;
+                    newList.quantity = quantity - 1;
                     toast.dark("🧃 " + name + " removed!");
                   }
                 }}
@@ -60,7 +65,9 @@ const List = (props) => {
                 {quantity <= 0 ? (
                   ""
                 ) : (
-                  <span style={{ fontSize: "2rem" }}>x {quantity}</span>
+                  <span style={{ marginLeft: "-2rem", fontSize: "2rem" }}>
+                    x {quantity}
+                  </span>
                 )}
               </span>
             </div>
