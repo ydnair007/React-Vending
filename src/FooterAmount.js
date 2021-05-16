@@ -10,12 +10,13 @@ const FooterAmount = (props) => {
         <h2>Buy Something!</h2>
       ) : (
         <>
+          <h1>
+            Total Amount ={" "}
+            <span style={{ color: "crimson" }}>{props.tPrice}</span>/-
+          </h1>
           <Button
             style={{
               backgroundColor: "#40B3F9",
-              float: "right",
-              marginLeft: "-15rem",
-              marginRight: "5rem",
               fontSize: "1.5rem",
             }}
             onClick={() => {
@@ -26,10 +27,6 @@ const FooterAmount = (props) => {
           >
             Reset
           </Button>
-          <h1>
-            Total Amount ={" "}
-            <span style={{ color: "crimson" }}>{props.tPrice}</span>/-
-          </h1>
         </>
       )}
     </div>
