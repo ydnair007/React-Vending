@@ -30,24 +30,23 @@ const App = () => {
   }, []);
 
   const onSubmit = () => {
-    console.log(cAmount);
-    setRepay(cAmount);
-    console.log("repay " + repay);
-    setIsEdit(!isEdit);
+    if (cAmount <= 0) {
+      toast("Bruhh? Even my dog is more rich than you", { autoClose: 3000 });
+    } else {
+      setRepay(cAmount);
+      setIsEdit(!isEdit);
+    }
   };
   return (
     <div style={{ textAlign: "center" }} className="bumba">
       <ToastContainer
         style={{ textAlign: "left" }}
         position="bottom-left"
-        autoClose={3000}
+        autoClose={1000}
         hideProgressBar={false}
-        newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
         draggable
-        pauseOnHover
       />
       <h1 className="pt-4">Welcome to Vending Machine</h1>
       <br />
@@ -59,7 +58,7 @@ const App = () => {
             <Label>
               Enter the Amount :
               <Input
-                type="text"
+                type="number"
                 name="uAmount"
                 id="uAmount"
                 min="0"
@@ -94,6 +93,7 @@ const App = () => {
           <br />
           <FooterAmount
             setTPrice={setTPrice}
+            setCAmount={setCAmount}
             tPrice={tPrice}
             repay={repay}
             setLists={setLists}

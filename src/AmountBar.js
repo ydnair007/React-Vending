@@ -5,8 +5,6 @@ const AmountBar = (props) => {
   useEffect(() => {
     if (props.isEdit) {
       toast.dark("Locked 🔒");
-    } else {
-      toast.dark("Unlocked 🔓");
     }
   }, [props.isEdit]);
   return (

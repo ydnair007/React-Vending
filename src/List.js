@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import { Button } from "reactstrap";
 
 const List = (props) => {
-  //const list = props.list;
   const list = props.lists;
   useEffect(() => {}, [props.lists]);
   return (

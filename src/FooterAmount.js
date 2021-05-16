@@ -20,7 +20,7 @@ const FooterAmount = (props) => {
               fontSize: "1.5rem",
             }}
             onClick={() => {
-              console.log(props.repay);
+              props.setCAmount(props.repay);
               props.setTPrice(0);
               props.setLists(data);
             }}
