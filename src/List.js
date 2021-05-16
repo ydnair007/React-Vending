@@ -23,9 +23,13 @@ const List = (props) => {
                 style={{ marginBottom: ".5rem" }}
                 color="success"
                 onClick={() => {
-                  //quantity++;
-                  console.log(quantity);
-                  props.setTPrice(props.tPrice + price);
+                  if (price <= props.cAmount) {
+                    props.setCAmount(props.cAmount - price);
+                    props.setTPrice(props.tPrice + price);
+                    toast.dark("🧃 " + name + " added!");
+                  } else {
+                    toast.error("Not Enough Funds");
+                  }
                 }}
               >
                 ➕
@@ -38,7 +42,9 @@ const List = (props) => {
                     props.setTPrice(0);
                     toast.error("Order Something First");
                   } else {
+                    props.setCAmount(props.cAmount + price);
                     props.setTPrice(props.tPrice - price);
+                    toast.dark("🧃 " + name + " removed!");
                   }
                 }}
               >

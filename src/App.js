@@ -70,8 +70,8 @@ const App = () => {
         </CardBody>
         <CardFooter>Note: We will make your pockets loose</CardFooter>
       </Card>
-      <AmountBar isEdit={isEdit} cAmount={cAmount}></AmountBar>
-      {cAmount <= 0 ? (
+      <AmountBar isEdit={isEdit} cAmount={cAmount} tPrice={tPrice}></AmountBar>
+      {cAmount + tPrice <= 0 ? (
         <h1>🤑 Enter Amount First 🤑</h1>
       ) : (
         <>
@@ -80,6 +80,8 @@ const App = () => {
             tPrice={tPrice}
             setTPrice={setTPrice}
             tPrice={tPrice}
+            cAmount={cAmount}
+            setCAmount={setCAmount}
           ></List>
           <br />
           <FooterAmount tPrice={tPrice}></FooterAmount>

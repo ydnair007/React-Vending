@@ -11,7 +11,7 @@ const AmountBar = (props) => {
   }, [props.isEdit]);
   return (
     <div>
-      {props.cAmount <= 0 ? (
+      {props.cAmount + props.tPrice <= 0 ? (
         <h3 style={{ textAlign: "right", marginRight: "4rem" }}>
           👊🏻 Piss Off Looser 😠
         </h3>
