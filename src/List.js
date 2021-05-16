@@ -44,12 +44,14 @@ const List = (props) => {
                   if (props.tPrice <= 0) {
                     props.setTPrice(0);
                     toast.error("Order Something First");
-                  } else {
+                  } else if (quantity > 0) {
                     props.setCAmount(props.cAmount + price);
                     props.setTPrice(props.tPrice - price);
                     let newList = item;
                     newList.quantity = quantity - 1;
                     toast.dark("🧃 " + name + " removed!");
+                  } else {
+                    toast.error("🧃 " + name + " not in cart!");
                   }
                 }}
               >

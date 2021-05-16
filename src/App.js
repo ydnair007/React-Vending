@@ -55,7 +55,7 @@ const App = () => {
             <Label>
               Enter the Amount :
               <Input
-                type="number"
+                type="text"
                 name="uAmount"
                 id="uAmount"
                 min="0"
@@ -64,7 +64,11 @@ const App = () => {
                 onChange={(e) => setCAmount(e.target.value)}
               ></Input>
             </Label>
-            <Button style={{ marginLeft: "15px" }} onClick={onSubmit}>
+            <Button
+              style={{ marginLeft: "15px" }}
+              onClick={onSubmit}
+              disabled={isEdit}
+            >
               {isEdit ? "🔒 Locked" : "🔓 Unlocked"}
             </Button>
           </Form>
@@ -80,7 +84,6 @@ const App = () => {
             lists={lists}
             tPrice={tPrice}
             setTPrice={setTPrice}
-            tPrice={tPrice}
             cAmount={cAmount}
             setCAmount={setCAmount}
           ></List>
