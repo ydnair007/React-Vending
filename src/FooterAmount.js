@@ -1,9 +1,28 @@
 import React, { useEffect } from "react";
 import { Button } from "reactstrap";
-import data from "./data copy";
 
 const FooterAmount = (props) => {
   useEffect(() => {}, [props.tPrice]);
+  const datasheet = [
+    {
+      id: 1,
+      name: "Coke",
+      price: 25,
+      quantity: 0,
+    },
+    {
+      id: 2,
+      name: "Pepsi",
+      price: 32,
+      quantity: 0,
+    },
+    {
+      id: 3,
+      name: "Soda",
+      price: 47,
+      quantity: 0,
+    },
+  ];
   return (
     <div>
       {props.tPrice <= 0 ? (
@@ -22,7 +41,7 @@ const FooterAmount = (props) => {
             onClick={() => {
               props.setCAmount(props.repay);
               props.setTPrice(0);
-              props.setLists(data);
+              props.setLists(datasheet);
             }}
           >
             Reset
