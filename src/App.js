@@ -79,7 +79,7 @@ const App = () => {
         <CardFooter>Note: We will make your pockets loose</CardFooter>
       </Card>
       <AmountBar isEdit={isEdit} cAmount={cAmount} tPrice={tPrice}></AmountBar>
-      {cAmount + tPrice <= 0 ? (
+      {cAmount + tPrice <= 0 || isEdit === false ? (
         <h1>🤑 Enter Amount First 🤑</h1>
       ) : (
         <>
