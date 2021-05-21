@@ -48,7 +48,7 @@ const App = () => {
         rtl={false}
         draggable
       />
-      <h1 className="pt-4">Welcome to Vending Machine</h1>
+      <h1 className="pt-4">🥤 Vending Machine</h1>
       <br />
       <Card style={{ textAlign: "left" }}>
         <CardBody>
